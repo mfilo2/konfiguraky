@@ -49,78 +49,78 @@
 			let g:airline_symbols.whitespace = 'Ξ'
 
 "generic
-	set nocompatible				"není to vi ale vim
-	set visualbell					"vizuální zvonek
+	set nocompatible				"nie je to vi ale vim
+	set visualbell					"vizualny zvoncek
 	set title
-	set titlestring=VIM\ %f%y%m%r	"titulek
-	set mouse=a							"myš v konzolet
-	set confirm							"pokud jsem nepoužil ! a měl jsem, tak se mě zeptá co dělat
-	set nojoinspaces				"při spojování řádků nedává dvě mezery
-	set clipboard=unnamed		"Vše, co se ukládá do "unnamed" registru, se bude ukládat zároveň i do clipboardu.
-	set autochdir				"automaticky přejdi do adresáře s otevíraným souborem
-	autocmd! bufwritepost .vimrc source %		"při uložení automaticky načte .vimrc
+	set titlestring=VIM\ %f%y%m%r			"titulok
+	set mouse=a					"mys v konzole
+	set confirm					"ak som nepouzil ! a mal som, tak sa ma spyta co robit
+	set nojoinspaces				"pri spajani riadkov nedava dve medzery
+	set clipboard=unnamed				"vsetko co sa uklada do "unnamed" registra sa bude ukladat zaroven aj do clipboardu
+	set autochdir					"automaticky prejde do adresara s otvaranym suborom
+	autocmd! bufwritepost .vimrc source %		"pri ulozeni automaticky nacita .vimrc
 
-"ovládání
-	set backspace=indent,eol,start "Backspace maže odsazení, konce řádků,...
+"ovladanie
+	set backspace=indent,eol,start 			"backspace maze odsadenie, konce riadkov,...
 	let mapleader = ","
 	let maplocalleader = ","
 
-"zvýrazňování
+"zvyraznovanie
 	syntax on
-	set showmatch						"zvýraznění páru závorek
+	set showmatch					"zvyraznenie zatvoriek
 
-"formáty
+"formaty
 	set fileencodings=utf-8,iso8859-2,cp1250
 	set fileformats=unix,dos
 
 "statusline
-	set showcmd							"ukazuje příkazy na posledním řádku
-	set laststatus=2				"znamená, že chceme, aby byl stavový řádek zapnutý vždy
+	set showcmd					"ukazuje príkazy na poslednom riadku
+	set laststatus=2				"znamena, ze chceme, aby bol stavovy riadok vzdy zapnuty
 
-"pozice
-	set number							"ukazuje čísla řádků
-	set ruler								"ukazuj pozici kurzoru
+"pozicia
+	set number					"zobrazuje císla riadkov
+	set ruler					"zobrazuje poziciu kurzoru
 
-"zobrazení
-	set scrolloff=3					"minimální počet viditelných řádků při rolování
-	set sidescroll=3				"totéž při posun za strany
-	set wrap								"zobrazuje řádky zalomeně
-	set linebreak						"zlom jen ve slově
-	set autoindent					"jen zachovává odsazení
-	set smartindent					"zachovává odsazení ale inteligentně ho umí zvětšit/zmenšit
-	filetype plugin indent on	"odsazovaní podle filetyp
+"zobrazenie
+	set scrolloff=3					"minimalny pocet viditelnych riadkov pri rolovani
+	set sidescroll=3				"to iste pri posune za stranu
+	set wrap					"zobrazuje riadky zalomene
+	set linebreak					"zlom iba v slove
+	set autoindent					"iba zachovava odsadenie
+	set smartindent					"zachovava odsadenie ale inteligentne ho vie zvacsit/zmensit
+	filetype plugin indent on			"odsadzovanie podla filetyp
 	set guifont=MonacoB:h18
 
-"vyhledávání
-	set wrapscan						"po dosažení konce souboru se hledá znovu od začátku
-	set hlsearch						"zvýraznění hledaného textu
-	set ignorecase					"při hledání nerozlišuje velká a malá písmena
-	set smartcase						"ignorecase platí pouze tehdy pokud v~hledaném výrazu jsou jen malá písmena
-	set incsearch						"ukazuje mi co hledám ještě předtím než dám Enter
+"vyhladavanie
+	set wrapscan					"po dosiahnuti konca suboru sa hlada znovu od zaciatku
+	set hlsearch					"zvyraznenie hladaneho textu
+	set ignorecase					"pri hladani nerozlisuje velke a male pismena
+	set smartcase					"ignorecase plati iba vtedy ak v hladanom vyraze su iba male pismena
+	set incsearch					"ukazuje mi co hladam este predtym co dam Enter
 
-"slovníky
-	set helplang=cs					"jazyk nápovědy
+"slovniky
+	set helplang=cs					"jazyk napovedy
 	map <Leader>s :set spell spelllang=cs,en<Return>
 	map <Leader>S :set nospell<Return>
 
-"doplňování
+"doplnovanie
 	set wildchar=<Tab>
-	set wildmenu						"v :příkazovém řádku zobrazí menu pro výběr
-	set wildmode=list:longest,list:full	"chování TAB v~příkazovém řádku
-	set wildignore=*~,*.o,*.aux	"Ignoruje při doplňování tabulátorem
+	set wildmenu					"v :prikazovom riadku zobrazi menu pre vyber
+	set wildmode=list:longest,list:full		"chovanie TAB v prikazovom riadku
+	set wildignore=*~,*.o,*.aux			"ignoruje pri doplnovani tabulatorom
 
 "sudo trick
 	cmap w!! w !sudo tee > /dev/null %
 
-"odsazování
-	set tabstop=4						"odsazení tabulátoru
-	set shiftwidth=4				"šířka odsazení při >>
-	set noexpandtab					"Use tabs, not spaces
-	set shiftround					"Zaokrouhluj počet mezer při odsazování (>> C-T << C-D) na násobek shiftwidth.
-	vnoremap < <gv	"během odsazování zachová výběr
+"odsadzovanie
+	set tabstop=4					"odsadenie tabulatora
+	set shiftwidth=4				"sirka odsadenia pri >>
+	set noexpandtab					"use tabs, not spaces
+	set shiftround					"zaokruhluj pocet medzier pri odsadzovani (>> C-T << C-D) na nasobok shiftwidth.
+	vnoremap < <gv					"v priebehu odsadzovania zachova vyber
 	vnoremap > >gv
 
-"historie a zálohování
+"historia a zalohovanie
 	set history=200
 	set backup
 	set backupdir=~/.vim/backup
@@ -132,25 +132,25 @@
 "filetype specific options
 	
 
-"Vzhled
+"vzhlad
 	set t_Co=256
 	colors zenburn
 
-"spustí shell z označeným příkazem
-	"příkaz shell pod kurzorem
+	"spusti shell z oznacenym prikazom
+	"prikaz shell pod kurzorom
 		map <Leader>e :!<C-R><C-A>& <Return>
-	"označený příkaz
+	"oznaceny prikaz
 		vmap <Leader>e y:!<C-R>"& <Return>
-	"celý řádek zadá jako příkaz shell
+	"cely riadok zada ako prikaz shell
 		map <Leader>E ^v$h<Leader>e
 		imap <Leader>E <Esc><Leader>E
-"řetězec pod kurzorem vloží jak URL do prohlížeče
+	"retazec pod kurzorom vlozi ako URL do prehliadaca
 	map <Leader>w :!firefox <C-R><C-A> & <Return>
 
-"Formátování
-	"formátovat odstavec
+"formatovanie
+	"formatovat odstavec
 		map <Leader><Return> gwap
 		imap <Leader><Return> <Esc>gwapa
 	map <Leader>g<Return> gogqG
 
-set ww=b,s,<,>,[,],~ ",h,l "chování na přechodu dvou řádků
+set ww=b,s,<,>,[,],~ ",h,l 				"chovanie na prechodu dvoch riadkov
