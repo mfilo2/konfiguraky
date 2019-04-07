@@ -147,7 +147,26 @@ emerge --ask net-misc/dhcpcd
 Cast 3
 ---------------------------
 
+emerge --ask sys-boot/grub:2
+grub2-install /dev/sda
+grub2-mkconfig -o /boot/grub/grub.cfg
+exit
+cd
 
+umount -l /mnt/gentoo
+umount -l /dev
+umount -l /proc
+umount -l /sys
+umount -l /boot
+
+reboot
+
+tux login: root
+Password: heslo
+
+ping -c 3 www.google.sk
+
+HOTOVO
 
 
 
