@@ -142,6 +142,7 @@ emerge --ask sys-appps/mlocate
 emerge --ask sys-fs/e2fsprogs		podpora pre fs (ext2, ext3, ext4)
 
 emerge --ask net-misc/dhcpcd
+emerge --ask net-wireless/iw net-wireless/wpa_supplicant
 
 ---------------------------
 Cast 3
