@@ -96,6 +96,56 @@ nano -w /etc/fstab
 
 genkernel all - samotna kompilacia jadra (ja som pouzil genkernel)
 
+nano -w /etc/fstab
+
+/dev/sda2	/boot	ext2	defaults,noatime	0 2
+/dev/sda3	/	ext4	noatime			0 1
+
+nano -w /etc/conf.d/hostname
+
+hostname="tux"
+
+nano -w /etc/conf.d/net
+
+dns_domain_lo="homenetwork"
+
+emerge --ask --noreplace net-misc/netifrc
+
+ip link
+
+nano -w /etc/conf.d/net
+
+config_wlp3s0="dhcp"
+
+cd /etc/init.d
+
+ln -s net.lo net.wlp3s0
+
+rc-update add net.wlp3s0 default
+
+cd
+
+nano -w /etc/hosts
+
+127.0.0.1	tux.homenetwork tux localhost
+
+passwd
+
+nano -w /etc/rc.conf		- nerobime nic
+nano -w /etc/conf.d/keymaps	- nerobime nic
+
+emerge --ask app-admin/sysklogd
+rc-update add sysklogd default
+emerge --ask sys-process/cronie
+rc-update add cronie default
+emerge --ask sys-appps/mlocate
+emerge --ask sys-fs/e2fsprogs		podpora pre fs (ext2, ext3, ext4)
+
+emerge --ask net-misc/dhcpcd
+
+---------------------------
+Cast 3
+---------------------------
 
 
 
