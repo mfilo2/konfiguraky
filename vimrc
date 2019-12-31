@@ -154,3 +154,7 @@
 	map <Leader>g<Return> gogqG
 
 set ww=b,s,<,>,[,],~ ",h,l 				"chovanie na prechodu dvoch riadkov
+
+" C-c and C-v - Copy/Paste to global clipboard
+vmap <C-c> "+yi
+imap <C-v> <esc>"+gpi
