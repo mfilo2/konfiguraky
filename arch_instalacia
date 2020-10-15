@@ -1,0 +1,126 @@
+/dev/sda     disk, na ktory instalujeme arch
+/dev/sdg     usb flash s arch minimal iso
+
+stiahnut arch minimal iso
+lsblk
+sudo su
+dd if=/home/mato/Downloads/arch_minimal.iso of=/dev/sdg status="progress"
+nabootujeme do usb flash disku
+
+
+otestujeme ci mame uefi system, ak je vystup prikazu no such file or directory, tak pouzivame bios, ak nie tak uefi
+ls /sys/firmware/efi/efivars
+
+ ping microwaste.sk
+ wifi-menu
+ timedatectl set-ntp true
+ lsblk   - zistime oznacenie blokoveho zariadenia /dev/sdx
+
+ ## vytvorenie particii ##
+ fdisk /dev/sda
+ Command (m for help): m       - help
+ Command (m for help): p       - vypiseme si jednotlive particie (ak existuju, napr. /dev/sdb1)
+ Command (m for help): d       - zmaze particiu (ak existuje)
+ Command (m for help): p
+
+ Command (m for help): n       - vytvorime novu /boot particiu
+ Select (default p): p
+ Partition number (1-4, default 1): 1
+ First sector (2048-625142445, default 2048): Enter
+ Last sector, +sectors or +size{K,M, G,T,P} (2048-625142445, default 625142445): +200M
+ Do you want do remove the signature [Y]es/[N]o: Y
+
+ Command (m for help): n       - vytvorime si swap particiu
+ Select (default p): p
+ Partition number (2-4, default 2): 2
+ First sector (411648-625142445, default 411648): Enter
+ Last sector, +sectors or +size{K,M, G,T,P} (2048-625142445, default 625142445): +12G (pri 8GB RAM)
+
+ Command (m for help): n       - vytvorime si root particiu
+ Select (default p): p
+ Partition number (3,4, default 3): 3
+ First sector (25577472-625142445, default 25577472): Enter
+ Last sector, +sectors or +size{K,M, G,T,P} (2048-625142445, default 625142445): +60G
+ Do you want do remove the signature [Y]es/[N]o: Y
+
+ Command (m for help): n       - vytvorime si home particiu
+ Select (default e): p
+ First sector (78006272-625142445, default 78006272): Enter
+ Last sector, +sectors or +size{K,M, G,T,P} (78006272-625142445, default 625142445): Enter (tymto zvolime zbytok priestoru)
+ Do you want do remove the signature [Y]es/[N]o: Y
+
+Command (m for help): w        - zapiseme vsetky vykonane zmeny
+
+## vytvorenie file systemov ##
+
+mkfs.ext4 /dev/sda1            - /boot
+mkfs.ext4 /dev/sda3            - /
+mkfs.ext4 /dev/sda4            - /home
+mkswap /dev/sda2
+swapon /dev/sda2
+
+## mountovanie file systemov ##
+
+mount /dev/sda3 /mnt
+mkdir /mnt/home
+mkdir /mnt/boot
+mount /dev/sda1 /mnt/boot
+mount /dev/sda4 /mnt/home
+
+## instalacia arch linuxu ##
+
+pacstrap /mnt base base-devel vim linux linux-firmware
+
+genfstab -U /mnt >> /mnt/etc/fstab
+vim /mnt/etc/fstab
+arch-chroot /mnt
+vim/etc/fstab
+pacman -S networkmanager
+systemctl enable NetworkManager
+pacman -S grub
+grub-install --target=i386-pc /dev/sda
+grub-mkconfig -o /boot/grub/grub.cfg
+passwd
+vim /etc/locale.gen (odkomentovat en_US.UTF-8 UTF-8 a en_US ISO-8859-1, mozme pridat aj SK)
+locale-gen
+vim /etc/locale.conf (prazdny subor, pridame donho retazec "LANG=en-US.UTF-8", ak sme pridali SK, dame ho aj sem)
+ls /usr/share/zoneinfo/
+ln -sf /usr/share/zoneinfo/Europe/Bratislava /etc/localtime
+vim /etc/hostname (prazdny subor, pridame retazec napr. "arch")
+exit
+umount -R /mnt
+reboot
+
+pod rootom spustime:
+curl -LO larbs.xyz/larbs.sh
+sh larbs.sh
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
