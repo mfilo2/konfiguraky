@@ -1,0 +1,137 @@
+Pressure stall information tracking (PSI)
+Enable kernel headers through /sys/kernel/kheaders.tar.xz (IKHEADERS)
+Enable IO uring support (IO_URING)
+Page allocator randomization (SHUFFLE_PAGE_ALLOCATOR)
+x86 CPU resource control support (X86_CPU_RESCTRL)
+Support Hygon processors (CPU_SUP_HYGON)
+Support Zhaoxin processors (CPU_SUP_ZHAOXIN)
+Enable statistics for Change Page Attribute (X86_CPA_STATISTICS)
+TSX enable mode
+1. off (X86_INTEL_TSX_MODE_OFF)
+2. on (X86_INTEL_TSX_MODE_ON)
+3. auto (X86_INTEL_TSX_MODE_AUTO)
+
+vsynccall table for legacy applications
+1. Full emulation (LEGACY_VSYSCALL_EMULATE)
+2. Emulate execution only (LEGACY_VSYSCALLL_XONLY)
+3. None (LEGACY_VSYSCALL_NONE)
+
+Energy Model for CPUs (ENERGY_MODEL)
+Timer events oriented (TEO) governor (for tickless systems) (CPU_IDLE_GOV_TEO)
+Locking event counts collection (LOCK_EVENT_COUNTS)
+Allow loading of modules with missing namespace imports (MODULE_ALLOW_MISSING_NAMESPACE_IMPORTS)
+Virtual (secure) IP: tunneling (NET_IPVTI)
+IPv4/IPv6 bridge connection tracking support (NF_CONNTRACK_BRIDGE)
+Time Aware Priority (taprio) Scheduler (NET_SCH_TAPRIO)
+MPLS manipulation (NET_ACT_MPLS)
+connection tracking tc action (NET_ACT_CT)
+TC recirculation support (NET_TC_SKB_EXT)
+EISA support (EISA)
+PCI Express Bandwidth Change Notification (PCIE_BW)
+MESON PCIe controller (PCI_MESON)
+Enable compressed firmware support (FW_LOADER_COMPRESS)
+Xilinx SDFEC 16 (XILINX_SDFEC)SPD EEPROMs on DDR4 memory modules
+Intel HDCP2.2 services of ME Interface (INTEL_MEI_HDCP)
+Alcor Micro/Alcor Link PCI-E card reader (MISC_ALCOR_PCI)
+HabanaAI accelerators (habanalabs)
+WireGuard secure network tunnel (WIREGUARD)
+  Debugging checks and verbose messages (WIREGUARD_DEBUG)
+Generic Network Virtualization Encaptulation (GENEVE)
+Google Devices (NET_VENDOR_GOOGLE)
+Intel(R) Ethernet Controller I225-LM/I225-V support (IGC)
+Microchip devices (NET_VENDOR_MICROCHIP)
+National Instruments XGE management enet support (NI_XGE_MANAGEMENT_ENET)
+Pensando devices (NET_VENDOR_PENSANDO)
+TI CPSW Phy mode Selection (DEPRECATED)
+Xilinx devices (NET_VENDOR_XILINX)
+Analog Devices Industrial Ethernet PHYs (ADIN_PHY)
+NXP TJA11xx PHYs support (NXP_TJA11XX)
+MediaTek MT76x0E (PCIe) support (MT76x0E)
+MediaTek MT7603E (PCIe) support (MT7603E)
+MediaTek MT7615E (PCIe) support (MT7615E)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+make && make modules_install
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
