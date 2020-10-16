@@ -1,0 +1,106 @@
+/boot
+Begining
+primary
+200MB
+
+/swap
+primary
+8GB
+usermod
+/
+primary
+25GB
+
+/home
+primary
+zvysok disku
+-------------
+apt install sudo
+usermod -a -G sudo mato
+sudo apt install vim
+sudo apt install git
+sudo apt install wget
+sudo apt install fonts-inconsolata
+sudo apt install build-essential
+sudo apt install xorg
+
+sudo apt install libx11-dev libxft-dev libxinerama-dev xcompmgr
+
+mkdir ~/programs
+cd programs
+git clone https://git.suckless.org/dwm
+git clone https://git.suckless.org/dmenu
+git clone https://git.suckless.org/st
+
+cd dwm
+sudo make clean install
+cd dmenu
+sudo make clean install
+cd st
+sudo make clean install
+
+~/.profile:
+[[ -f ~/.bashrc ]] && . ~/.bashrc
+
+export PATH=$PATH:$HOME/.scripts
+export PATH=$PATH:$HOME/.local/bin
+export PATH=$PATH:$HOME/.local/bin/personal
+export EDITOR="vim"
+export TERMINAL="st"
+export BROWSER="brave"
+export SDL_VIDEO_X11_DGAMOUSE=0
+
+if [[ "$(tty)" = "/dev/tty1" ]]; then
+	pgrep dwm || startx
+fi
+
+~/.xinitrc:
+exec dwm
+
+reboot
+
+## st ##
+sudo apt install python3-pip
+pip3 install pywal
+
+# stiahneme patche pre st #
+st-xresources
+st-alpha
+
+# apply patch #
+rm config.h
+patch --merge -i st-...diff
+sudo make clean install
+/usr/local/bin/st
+
+sudo apt install xwallpaper
+sudo apt install sxiv
+sudo apt install unclutter
+
+ctrl+shift+pgup -- zvacsenie pisma v st
+
+-------------
+
+adjust resolution:
+prihlasime sa ako root
+X -configure
+cd ~
+cp xorg.conf.new /etc/X11/xorg.conf
+cd /etc/X11
+vim xorg.conf
+Depth     24
+Modes     "1440x900"
+exit
+
+
+
+
+
+
+
+
+
+
+
+
+
