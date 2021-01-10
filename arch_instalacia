@@ -91,10 +91,6 @@ exit
 umount -R /mnt
 reboot
 
-pod rootom spustime:
-curl -LO larbs.xyz/larbs.sh
-sh larbs.sh
-
 
 
 
